@@ -5,6 +5,14 @@ import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 function Navbar() {
+  const links = [
+    { id: 1, name: "Home" },
+    { id: 2, name: "About" },
+    { id: 2, name: "Skills" },
+    { id: 3, name: "Work" },
+    { id: 4, name: "Contact" },
+  ];
+
   const [nav, setNav] = useState(false);
 
   const handleClick = () => setNav(!nav);
@@ -27,11 +35,18 @@ function Navbar() {
       <div>
         {/* menu */}
         <ul className="hidden md:flex">
-          <li>Home</li>
-          <li>About</li>
-          <li>Skills</li>
-          <li>Work</li>
-          <li>Contact</li>
+          {links.map(({ id, name }) => {
+            return (
+              <li key={id} className="hover:text-black">
+                {name}
+              </li>
+            );
+          })}
+          {/* <li className="hover:text-black">Home</li>
+          <li className="hover:text-black">About</li>
+          <li className="hover:text-black">Skills</li>
+          <li className="hover:text-black">Work</li>
+          <li className="hover:text-black">Contact</li> */}
         </ul>
       </div>
       {/* Hamburger */}
